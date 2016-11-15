@@ -32,8 +32,10 @@ gulp.task('default', ['lint', 'sass', 'hbs', 'js'], function() {
 })
 
 gulp.task('lint', function() {
-  return gulp.src('./lib/*.js')
-    .pipe(jshint())
+  return gulp.src(['./app/**/*.js', 'gulpfile.js'])
+    .pipe(jshint({
+        
+    }))
     .pipe(jshint.reporter(stylish));
 });
 

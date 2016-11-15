@@ -191,8 +191,6 @@
 
             return lines;
         }
-
-
     }
 
     // exposes library for browser and Node-based code (such as unit tests)
