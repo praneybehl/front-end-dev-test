@@ -29,12 +29,12 @@ gulp.task('watch', function () {
 
 gulp.task('default', ['lint', 'sass', 'hbs', 'js'], function() {
     // Add tests here
-})
+});
 
 gulp.task('lint', function() {
   return gulp.src(['./app/**/*.js', 'gulpfile.js'])
     .pipe(jshint({
-        
+        esversion: 6
     }))
     .pipe(jshint.reporter(stylish));
 });
@@ -45,7 +45,7 @@ gulp.task('hbs', function () {
     },
     options = {
         batch : ['./app/TopNav/hbs/']
-    }
+    };
  
     return gulp.src('app/Global/hbs/TopNavExample.handlebars')
         .pipe(handlebars(templateData, options))
