@@ -24,16 +24,21 @@
   "homepage": "https://github.com/superelement/front-end-dev-test#readme",
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-compile-handlebars": "^0.6.1",
+    "gulp-concat": "^2.6.1",
     "gulp-flatten": "^0.3.1",
     "gulp-jshint": "^2.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-webserver": "^0.9.1",
+    "jsdom": "^9.8.3",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
+    "mocha": "^3.1.2",
+    "mocha-jsdom": "^1.1.0",
     "rename": "^1.0.3",
     "verge": "^1.9.1"
   }
