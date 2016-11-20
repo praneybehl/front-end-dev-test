@@ -1,52 +1,41 @@
-<div class="topNav">
-    <p class="topNav-title">
-        Today is --WEEK_DAY_NAME-- and the month is --MONTH_NAME-- 
-    </p>
+<div class="topNav {{theme}}">
+    <div class="row">
+        <p class="topNav-title col-sm-6 col-xs-12">
+            Today is --WEEK_DAY_NAME-- and the month is --MONTH_NAME--
+        </p>
 
-    <p class="topNav-subTitle">
-        LEVO HAS OFFICES IN SYDNEY NSW AND MELBOURNE VIC. 
-    </p>
+        <p class="topNav-subTitle col-sm-6 col-xs-12">
+            LEVO HAS OFFICES IN SYDNEY NSW AND MELBOURNE VIC.
+        </p>
 
-    <ul class="evennav-list evennav-nojs">
-        <li class="evennav-item">
-            <a href="#" class="evennav-btn">
-                <span class="evennav-btninner">
-                    List item
-                </span>
-            </a>
-        </li>
+    </div>
 
-        <li class="evennav-item">
-            <a href="#" class="evennav-btn">
-                <span class="evennav-btninner">
-                    List item
-                </span>
-            </a>
-        </li>
+    <div class="row">
+        <ul class="evennav-list evennav-nojs">
 
+            {{#if isLargeMenu}}
+                {{#each theme2MenuItems}}
+                    <li class="evennav-item">
+                        <a href="#" class="evennav-btn">
+                    <span class="evennav-btninner nav-btn">
+                        {{this}}
+                    </span>
+                        </a>
+                    </li>
+                {{/each}}
 
-        <li class="evennav-item">
-            <a href="#" class="evennav-btn">
-                <span class="evennav-btninner">
-                    List item with a very very really really long title
-                </span>
-            </a>
-        </li>
+            {{else}}
+                {{#each theme1MenuItems}}
+                    <li class="evennav-item">
+                        <a href="#" class="evennav-btn">
+                    <span class="evennav-btninner nav-btn">
+                        {{this}}
+                    </span>
+                        </a>
+                    </li>
+                {{/each}}
+            {{/if}}
 
-        <li class="evennav-item">
-            <a href="#" class="evennav-btn">
-                <span class="evennav-btninner">
-                    List item
-                </span>
-            </a>
-        </li>
-
-        <li class="evennav-item">
-            <a href="#" class="evennav-btn">
-                <span class="evennav-btninner">
-                    List item
-                </span>
-            </a>
-        </li>
-    </ul>
+        </ul>
+    </div>
 </div>
