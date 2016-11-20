@@ -1,32 +1,51 @@
 (function(utils, evenNav, verge) {
 
+    // check for vibration support in browser
+    navigator.vibrate = navigator.vibrate ||
+        navigator.webkitVibrate ||
+        navigator.mozVibrate ||
+        navigator.msVibrate;
 
     function init() {
-        var el = document.querySelector(".topNav");
-        el.setAttribute("data-uid", utils.getUID()); // adds a unique id (uid) to the component
-        setTodayTitle(el);
-        setSubTitle(el);
-        setEvenNav(el);
+        var elems = document.querySelectorAll(".topNav");
+
+        for(var i=0; i<elems.length; i++){
+            var el = elems[i];
+            el.setAttribute("data-uid", utils.getUID()); // adds a unique id (uid) to the component
+            setTodayTitle(el);
+            setSubTitle(el);
+            setEvenNav(el);
+            onTapVibrate(el);
+        }
     }
 
 
     // Changes the upper case characters of '.topNav-subTitle' to pascal case
     function setSubTitle(el) {
-        // TODO: use 'utils.toPascalCase' to sanitize the contents of element '.topNav-subTitle'
+        var subTitleEl = el.querySelector(".topNav-subTitle");
+        subTitleEl.innerText = utils.toPascalCase(subTitleEl.innerText, ["has", "offices", "in", "and"], ["LEVO", "NSW", "VIC"]);
     }
 
 
     // Replaces '--WEEK_DAY_NAME--' and '--MONTH_NAME--' with dynamic contents in element '.topNav-title'
     function setTodayTitle(el) {
-        
-        // TODO: add today's week day and month name to the element '.topNav-title', using 'utils.getWeekDay' and 'utils.getMonthName'
+        var titleEl = el.querySelector(".topNav-title");
+        titleEl.innerText = titleEl.innerText.replace("--WEEK_DAY_NAME--", utils.getWeekDay())
+            .replace("--MONTH_NAME--", utils.getMonthName());
     }
 
 
-    // gets the window viewport width
+    // gets the window viewport width if its a mobile device
     function isMobileVP() {
         return verge.viewportW() < 768 ;
     }
+
+
+    // gets the window viewport width if its a tablet device
+    function isTabletVP(){
+        return verge.viewportW() >= 768 && verge.viewportW() < 992;
+    }
+
 
     // set the library 'EvenNav', which evenly sizes navigation elements horizontally
     function setEvenNav(el) {
@@ -42,6 +61,24 @@
             evenNav.clearClasses(el, !isMb);
             if(!isMb) evenNav.resize(el, !isMb);
         });
+    }
+
+    // add vibrate to every button if available
+    function onTapVibrate(el) {
+        var buttons = el.querySelectorAll(".nav-btn");
+
+        function vibrateDevice(){
+            if (navigator.vibrate) {
+                console.log('vibration supported');
+                navigator.vibrate(500);
+            }
+            else {
+                console.log('vibration not supported');
+            }
+        }
+        for(var i=0; i<buttons.length; i++){
+            buttons[i].addEventListener("touchstart", vibrateDevice);
+        }
     }
 
 

@@ -1,7 +1,93 @@
 @import "../../../libs/evennav/evennav";
+@import "../../Global/scss/variables";
 
 .topNav {
+    margin: 0 -9999px;
+    padding:20px 9999px;
+    color: #ffffff;
+
     &-title {
-        color: rgb(27.5%, 51%, 70.6%);
+        font-size: $title-font-size;
+        padding-bottom: 10px;
+
+    }
+    &-subTitle {
+        font-size: $title-font-size;
+        padding-bottom: 10px;
+
+        @media (min-width: 768px) {
+            text-align: right;
+        }
+    }
+
+    &.theme1 {
+        background-color: $t1-bg-color;
+
+        ul {
+            margin: 20px 0;
+            padding: 0;
+
+            .nav-btn {
+                background-color: $t1-button-bg-color;
+                color: $t1-button-bg-active;
+
+                &.active, &:hover {
+                    background-color: $t1-button-bg-active;
+                    color: $t1-button-color-active;
+                }
+            }
+        }
+    }
+
+    &.theme2 {
+        background-color: $t2-bg-color;
+
+        ul {
+            margin: 20px 0;
+            padding: 0 10px;
+
+            .nav-btn {
+                background-color: $t2-button-bg-color;
+                color: $t2-text-color;
+
+                &.active, &:hover {
+                    background-color: $t2-button-bg-active;
+                    color: $t2-button-color-active;
+                }
+            }
+        }
+    }
+
+    @media (max-width: $screen-sm-min) {
+
+        .row {
+            padding: 0 25px;
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                a {
+                    text-decoration: none;
+
+                    .nav-btn {
+                        font-size: 20px;
+                        vertical-align: middle;
+                        display: block;
+                        padding: 10px 25px;
+                        margin: 10px;
+                        position: relative;
+                        text-align: center;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+
+
+
+
     }
 }
