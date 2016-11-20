@@ -2770,6 +2770,13 @@ input[type="button"].btn-block {
   .hidden-print {
     display: none !important; } }
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(./assets/Open_Sans/OpenSans-Regular.ttf) format("ttf");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
 .evennav-list {
   display: table;
   text-align: justify;
@@ -2823,11 +2830,64 @@ input[type="button"].btn-block {
   padding: 12px 0;
   transform: translateY(-50%); }
 
-.topNav-title {
-  color: steelblue; }
+.topNav {
+  margin: 0 -9999px;
+  padding: 20px 9999px;
+  color: #ffffff; }
+  .topNav-title {
+    font-size: 19px;
+    padding-bottom: 10px; }
+  .topNav-subTitle {
+    font-size: 19px;
+    padding-bottom: 10px; }
+    @media (min-width: 768px) {
+      .topNav-subTitle {
+        text-align: right; } }
+  .topNav.theme1 {
+    background-color: #7094a7; }
+    .topNav.theme1 ul {
+      margin: 20px 0;
+      padding: 0; }
+      .topNav.theme1 ul .nav-btn {
+        background-color: #cbd9e0;
+        color: #58709b; }
+        .topNav.theme1 ul .nav-btn.active, .topNav.theme1 ul .nav-btn:hover {
+          background-color: #58709b;
+          color: #ffffff; }
+  .topNav.theme2 {
+    background-color: #8870a4; }
+    .topNav.theme2 ul {
+      margin: 20px 0;
+      padding: 0 10px; }
+      .topNav.theme2 ul .nav-btn {
+        background-color: #d5cee0;
+        color: #9d4685; }
+        .topNav.theme2 ul .nav-btn.active, .topNav.theme2 ul .nav-btn:hover {
+          background-color: #5fab85;
+          color: #ffffff; }
+  @media (max-width: 768px) {
+    .topNav .row {
+      padding: 0 25px; }
+      .topNav .row ul {
+        list-style: none;
+        padding: 0; }
+        .topNav .row ul a {
+          text-decoration: none; }
+          .topNav .row ul a .nav-btn {
+            font-size: 20px;
+            vertical-align: middle;
+            display: block;
+            padding: 10px 25px;
+            margin: 10px;
+            position: relative;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; } }
 
 body {
-  padding-top: 50px; }
+  overflow-x: hidden;
+  font-family: "Open Sans"; }
 
 .sg-titleBox {
   padding: 40px 15px;
